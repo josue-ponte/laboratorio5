@@ -15,8 +15,7 @@ import javax.xml.validation.SchemaFactory;
 import java.io.File;
 import java.io.IOException;
 
-import static xml.utils.Constants.XML_DOCUMENT;
-import static xml.utils.Constants.XML_SCHEMA;
+import static xml.utils.Constants.*;
 
 public class XmlValidator {
 
@@ -30,10 +29,10 @@ public class XmlValidator {
     try {
       SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
       ((schemaFactory.newSchema(new File(xmlSchema))).newValidator()).validate(new StreamSource(new File(xmlDocument)));
-      System.out.println("Documento XML valido");
+      System.out.println(MESSAGE_XML_DOCUMENT.concat(" válido"));
       return true;
     } catch (SAXException ex) {
-      System.out.println("Documento XML no valido");
+      System.out.println(MESSAGE_XML_DOCUMENT.concat(" no válido"));
       return false;
     }
   }
@@ -46,11 +45,11 @@ public class XmlValidator {
     try {
       DocumentBuilder builder = factory.newDocumentBuilder();
       builder.setErrorHandler(new SimpleErrorHandler());
-      Document document = builder.parse(new InputSource(xmlDocument));  // el método "parse" lanzará una excepción si está mal formado
-      System.out.println("Documento XML bien formado");
+      builder.parse(new InputSource(xmlDocument));  // el método "parse" lanzará una excepción si está mal formado
+      System.out.println(MESSAGE_XML_DOCUMENT.concat(" bien formado"));
       return true;
     } catch (SAXParseException ex) {
-      System.out.println("Documento XML mal formado");
+      System.out.println(MESSAGE_XML_DOCUMENT.concat(" mal formado"));
       return false;
     }
   }
