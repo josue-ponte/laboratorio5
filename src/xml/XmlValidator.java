@@ -1,11 +1,11 @@
 package xml;
 
-import org.w3c.dom.Document;
+import static xml.utils.Constants.*;
+
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import xml.exceptions.SimpleErrorHandler;
-
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,8 +14,6 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
 import java.io.IOException;
-
-import static xml.utils.Constants.*;
 
 public class XmlValidator {
 
@@ -39,12 +37,12 @@ public class XmlValidator {
 
   private boolean isXmlWellFormed(String xmlDocument) throws ParserConfigurationException, IOException, SAXException {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setValidating(false);
-    factory.setNamespaceAware(true);
+    factory.setValidating(false); // soporte para validacion de xml
+    factory.setNamespaceAware(true); // soporte para namespaces xml, por default en true
 
     try {
-      DocumentBuilder builder = factory.newDocumentBuilder();
-      builder.setErrorHandler(new SimpleErrorHandler());
+      DocumentBuilder builder = factory.newDocumentBuilder(); // leer documento xml
+      builder.setErrorHandler(new SimpleErrorHandler()); // controlar excepcion
       builder.parse(new InputSource(xmlDocument));  // el método "parse" lanzará una excepción si está mal formado
       System.out.println(MESSAGE_XML_DOCUMENT.concat(" bien formado"));
       return true;

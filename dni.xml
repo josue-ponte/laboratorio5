@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dni.xsd">
-    <front>
+    <front> <!-- elementos -->
         <numero>77220752</numero>
         <cod>8</cod>
         <nombre>
