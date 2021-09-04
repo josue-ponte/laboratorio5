@@ -1,6 +1,9 @@
 package xml;
 
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
+import org.xml.sax.SAXParseException;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
@@ -14,11 +17,27 @@ public class XMLValidation {
         boolean flag2 = true;
         try {
             validate("dni1.xml", "dni1.xsd");
-        } catch (SAXException ex) {
+        }
+//        catch (SAXNotSupportedException ex) {
+//            flag1 = false;
+//            System.out.println("Mal formado");
+//        }
+        catch (SAXParseException ex) {
+            flag1 = false;
+            System.out.println("No validado");
+        }
+//        catch (SAXNotRecognizedException ex) {
+//            flag1 = false;
+//            System.out.println("Mal formado");
+//        }
+        catch (SAXException ex) {
             flag2 = false;
-        } catch (IOException ex) {
+            System.out.println("No validado");
+        }
+        catch (IOException ex) {
             flag1 = false;
         }
+
 //        System.out.println("xml file esta bien formado: "+ flag1);
         System.out.println("xml file es valido: "+ flag2);
     }

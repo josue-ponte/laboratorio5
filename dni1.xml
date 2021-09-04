@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noSchemaName="dni1.xsd">
+<dni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dni1.xsd">
     <front>
         <numero>77220752</numero>
         <cod>8</cod>
         <nombre>
             <primerApellido>Ponte</primerApellido>
+            <preNombres>Josue<preNombres>
             <segundoApellido>Rojas</segundoApellido>
-            <preNombres>Josue </preNombres>
         </nombre>
         <fechaNacimiento>1998-09-21</fechaNacimiento>
         <ubigeo>140106</ubigeo>
