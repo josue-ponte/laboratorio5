@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="dni.xsd">
-    <name>Josue Daniel</name>
-    <surname>
-        <fsurname>Ponte</fsurname>
-        <msurname>Rojas</msurname>
-    </surname>
+    <front>
+        <numero>77220752</numero>
+        <cod>8</cod>
+        <nombre>
+            <primerApellido>Ponte</primerApellido>
+            <preNombres>Josue</preNombres>
+            <segundoApellido>Rojas</segundoApellido>
+        </nombre>
+        <fechaNacimiento>1998-09-21</fechaNacimiento>
+        <ubigeo>140106</ubigeo>
+        <sexo>M</sexo>
+        <estadoCivil>S</estadoCivil>
+        <fechaInscripcion>2011-07-14</fechaInscripcion>
+        <fechaEmision>2016-02-19</fechaEmision>
+        <fechaCaducidad>2024-02-19</fechaCaducidad>
+    </front>
+    <back>
+        <departamento>Lima</departamento>
+        <provincia>Lima</provincia>
+        <distrito>San Martin de Porres</distrito>
+        <direccion>Urb. Los pétalos de naranjal Mz. C Lt 14</direccion>
+        <donadorOrgano>true</donadorOrgano>
+        <grupoVotacion>269314</grupoVotacion>
+    </back>
 </dni>
