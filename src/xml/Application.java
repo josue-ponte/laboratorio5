@@ -13,7 +13,8 @@ public class Application {
   public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
 
     XmlValidator xmlValidator = new XmlValidator();
-    xmlValidator.isXmlWellFormed(XML_DOCUMENT); // bien formado solo necesita el documento xml
-    xmlValidator.isXmlValidated(XML_DOCUMENT, XML_SCHEMA); // validado necesita el documento xml y el schema xml
+    if(xmlValidator.isXmlWellFormed(XML_DOCUMENT)) {
+      xmlValidator.isXmlValidated(XML_DOCUMENT, XML_SCHEMA);
+    }
   }
 }

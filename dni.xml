@@ -5,8 +5,8 @@
         <cod>8</cod>
         <nombre>
             <primerApellido>Ponte</primerApellido>
-            <preNombres>Josue</preNombres>
             <segundoApellido>Rojas</segundoApellido>
+            <preNombres>Josue<preNombres>
         </nombre>
         <fechaNacimiento>1998-09-21</fechaNacimiento>
         <ubigeo>140106</ubigeo>
