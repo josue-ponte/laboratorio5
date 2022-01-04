@@ -1,4 +1,4 @@
-package xml.exceptions;
+package main.identification.exceptions;
 
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;

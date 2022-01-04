@@ -1,4 +1,4 @@
-package xml;
+package main.identification;
 
 import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -8,7 +8,10 @@ public class Application {
 
   public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
 
-    XmlValidator xmlValidator = new XmlValidator();
-    xmlValidator.processXml();
+    ValidatorService validatorService = new ValidatorService();
+    validatorService.processXml();
+
+    CountStudentsService service = new CountStudentsService();
+    service.run();
   }
 }

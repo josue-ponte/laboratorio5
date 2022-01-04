@@ -1,0 +1,19 @@
+<?identification version="1.0" encoding="UTF-8"?>
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="universityCard">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="university"		type="xs:string"/>
+                <xs:element name="code"			    type="xs:string"/>
+                <xs:element name="dni"				type="xs:string"/>
+                <xs:element name="lastName"		    type="xs:string"/>
+                <xs:element name="firstName"		type="xs:string"/>
+                <xs:element name="faculty"			type="xs:string"/>
+                <xs:element name="career"			type="xs:string"/>
+                <xs:element name="year"				type="xs:integer"/>
+                <xs:element name="semester"			type="xs:string"/>
+                <xs:element name="expirationDate"	type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

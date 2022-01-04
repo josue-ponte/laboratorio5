@@ -1,11 +1,11 @@
-package xml;
+package main.identification;
 
-import static xml.utils.Constants.*;
+import static main.identification.utils.Constants.*;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-import xml.exceptions.SimpleErrorHandler;
+import main.identification.exceptions.SimpleErrorHandler;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,7 +15,7 @@ import javax.xml.validation.SchemaFactory;
 import java.io.File;
 import java.io.IOException;
 
-public class XmlValidator {
+public class ValidatorService {
 
   public void processXml() throws IOException, SAXException, ParserConfigurationException {
     if(isXmlWellFormed(XML_DOCUMENT)) {
