@@ -1,13 +1,55 @@
 <?identification version="1.0" encoding="UTF-8"?>
-<universityCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="universityCard.xsd">
-    <university>UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS</university>
-    <code>17200133</code>
-    <dni>76517368</dni>
-    <lastName>ARMAS ABT</lastName>
-    <firstName>MIGUEL RODRIGO</firstName>
-    <faculty>INGENIERÍA DE SISTEMAS E INFORMÁTICA</faculty>
-    <career>INGENIERÍA DE SISTEMAS</career>
-    <year>2021</year>
-    <semester>2021-2</semester>
-    <expirationDate>23-12-2022</expirationDate>
-</universityCard>
+<universityCards>
+    <universityCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:noNamespaceSchemaLocation="universityCard.xsd">
+        <university>UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS</university>
+        <code>15200134</code>
+        <dni>76517361</dni>
+        <lastName>CUADROS RAMOS</lastName>
+        <firstName>KENT JHUNIOR</firstName>
+        <faculty>INGENIERÍA DE SISTEMAS E INFORMÁTICA</faculty>
+        <career>INGENIERIA DE SOFTWARE</career>
+        <year>2021</year>
+        <semester>2021-2</semester>
+        <expirationDate>23-12-2022</expirationDate>
+    </universityCard>
+    <universityCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:noNamespaceSchemaLocation="universityCard.xsd">
+        <university>UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS</university>
+        <code>17200133</code>
+        <dni>76517368</dni>
+        <lastName>ARMAS ABT</lastName>
+        <firstName>MIGUEL RODRIGO</firstName>
+        <faculty>INGENIERÍA DE SISTEMAS E INFORMÁTICA</faculty>
+        <career>INGENIERIA DE SISTEMAS</career>
+        <year>2021</year>
+        <semester>2021-2</semester>
+        <expirationDate>23-12-2022</expirationDate>
+    </universityCard>
+    <universityCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:noNamespaceSchemaLocation="universityCard.xsd">
+        <university>UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS</university>
+        <code>17200134</code>
+        <dni>76517369</dni>
+        <lastName>BOADA CAJO</lastName>
+        <firstName>EDINSON PAOLO</firstName>
+        <faculty>INGENIERÍA DE SISTEMAS E INFORMÁTICA</faculty>
+        <career>INGENIERIA DE SISTEMAS</career>
+        <year>2021</year>
+        <semester>2021-2</semester>
+        <expirationDate>23-12-2022</expirationDate>
+    </universityCard>
+    <universityCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:noNamespaceSchemaLocation="universityCard.xsd">
+        <university>UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS</university>
+        <code>15200134</code>
+        <dni>76517361</dni>
+        <lastName>CUADROS RAMOS</lastName>
+        <firstName>KENT JHUNIOR</firstName>
+        <faculty>INGENIERÍA DE SISTEMAS E INFORMÁTICA</faculty>
+        <career>INGENIERIA DE SISTEMAS</career>
+        <year>2021</year>
+        <semester>2021-2</semester>
+        <expirationDate>23-12-2022</expirationDate>
+    </universityCard>
+</universityCards>

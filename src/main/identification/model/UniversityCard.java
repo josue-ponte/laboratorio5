@@ -92,4 +92,20 @@ public class UniversityCard {
   public void setExpirationDate(String expirationDate) {
     this.expirationDate = expirationDate;
   }
+
+  @Override
+  public String toString() {
+    return "UniversityCard{" +
+        "university='" + university + '\'' +
+        ", code='" + code + '\'' +
+        ", dni='" + dni + '\'' +
+        ", lastName='" + lastName + '\'' +
+        ", firstName='" + firstName + '\'' +
+        ", faculty='" + faculty + '\'' +
+        ", career='" + career + '\'' +
+        ", year=" + year +
+        ", semester='" + semester + '\'' +
+        ", expirationDate='" + expirationDate + '\'' +
+        '}';
+  }
 }
