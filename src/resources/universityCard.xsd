@@ -11,7 +11,7 @@
                 <xs:element name="faculty"			type="xs:string"/>
                 <xs:element name="career"			type="xs:string"/>
                 <xs:element name="year"				type="xs:integer"/>
-                <xs:element name="semester"			type="xs:string"/>
+                <xs:element name="incomeYear"		type="xs:string"/>
                 <xs:element name="expirationDate"	type="xs:string"/>
             </xs:sequence>
         </xs:complexType>

@@ -10,7 +10,7 @@ public class UniversityCard {
   private String faculty;
   private String career;
   private int year;
-  private String semester;
+  private String incomeYear;
   private String expirationDate;
 
   public String getUniversity() {
@@ -77,12 +77,12 @@ public class UniversityCard {
     this.year = year;
   }
 
-  public String getSemester() {
-    return semester;
+  public String getIncomeYear() {
+    return incomeYear;
   }
 
-  public void setSemester(String semester) {
-    this.semester = semester;
+  public void setIncomeYear(String incomeYear) {
+    this.incomeYear = incomeYear;
   }
 
   public String getExpirationDate() {
@@ -104,7 +104,7 @@ public class UniversityCard {
         ", faculty='" + faculty + '\'' +
         ", career='" + career + '\'' +
         ", year=" + year +
-        ", semester='" + semester + '\'' +
+        ", incomeYear='" + incomeYear + '\'' +
         ", expirationDate='" + expirationDate + '\'' +
         '}';
   }

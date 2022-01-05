@@ -134,9 +134,9 @@ public class ParserFunctions {
             UniversityCard record = objects.peek();
             record.setYear(Integer.parseInt(value));
 
-          } else if ("semester".equals(currentElement())) {
+          } else if ("incomeYear".equals(currentElement())) {
             UniversityCard record = objects.peek();
-            record.setSemester(value);
+            record.setIncomeYear(value);
 
           } else if ("expirationDate".equals(currentElement())) {
             UniversityCard record = objects.peek();
