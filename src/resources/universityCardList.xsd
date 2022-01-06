@@ -1,53 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://www.example.org/Product"
-           xmlns:tns="http://www.example.org/Product">
+<?xml version="1.0"?>
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
 
-    <xs:element name="universityCardList">
+    <xs:element name = "universityCardList">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="universityCard" type="tns:universityCard" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name = "universityCard" maxOccurs="unbounded" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="year" type="xs:integer"/>
+                            <xs:element name="expirationDate" type="xs:string"/>
+                            <xs:element name="student">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                        <xs:element name="lastName" type="xs:string"/>
+                                        <xs:element name="dni" type="xs:string"/>
+                                        <xs:element name="code" type="xs:string"/>
+                                        <xs:element name="incomeYear" type="xs:string"/>
+                                        <xs:element name="career">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="careerName" type="xs:string"/>
+                                                    <xs:element name="faculty">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="facultyName" type="xs:string"/>
+                                                                <xs:element name="university">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="universityName" type="xs:string"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
-    <xs:complexType name="universityCard">
-        <xs:sequence>
-            <xs:element name="year" type="xs:integer"/>
-            <xs:element name="expirationDate" type="xs:string"/>
-            <xs:element name="student">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="firstName" type="xs:string"/>
-                        <xs:element name="lastName" type="xs:string"/>
-                        <xs:element name="dni" type="xs:string"/>
-                        <xs:element name="code" type="xs:string"/>
-                        <xs:element name="incomeYear" type="xs:string"/>
-                        <xs:element name="career">
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="careerName" type="xs:string"/>
-                                    <xs:element name="faculty">
-                                        <xs:complexType>
-                                            <xs:sequence>
-                                                <xs:element name="facultyName" type="xs:string"/>
-                                                <xs:element name="university">
-                                                    <xs:complexType>
-                                                        <xs:sequence>
-                                                            <xs:element name="universityName" type="xs:string"/>
-                                                        </xs:sequence>
-                                                    </xs:complexType>
-                                                </xs:element>
-                                            </xs:sequence>
-                                        </xs:complexType>
-                                    </xs:element>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
 
 </xs:schema>
