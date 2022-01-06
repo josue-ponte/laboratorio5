@@ -1,7 +1,6 @@
 package main.identification.utils;
 
 import static main.identification.utils.Constants.MESSAGE_XML_DOCUMENT;
-import static main.identification.utils.Constants.XML_ROOT_DOCUMENT;
 
 import main.identification.exceptions.SimpleErrorHandler;
 import main.identification.model.*;
@@ -66,7 +65,7 @@ public class ParserFunctions {
       SAXParserFactory factory = SAXParserFactory.newInstance();
       SAXParser parser = factory.newSAXParser();
 
-      InputStream is = new FileInputStream(XML_ROOT_DOCUMENT);
+      InputStream is = new FileInputStream(documentRoot);
       parser.parse(is, new DefaultHandler() {
 
         @Override

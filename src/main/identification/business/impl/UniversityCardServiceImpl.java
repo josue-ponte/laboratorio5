@@ -25,7 +25,7 @@ public class UniversityCardServiceImpl implements UniversityCardService {
 
   @Override
   public long countStudentsByProfessionalSchool(String professionalSchool) {
-    return parserFunctions.toObject("universityCard", XML_ROOT_DOCUMENT)
+    return parserFunctions.toObject("universityCard", XML_DOCUMENT_LIST)
         .stream()
         .filter(universityCard -> universityCard
             .getStudent()
