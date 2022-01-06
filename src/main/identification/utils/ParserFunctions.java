@@ -4,13 +4,12 @@ import static main.identification.utils.Constants.MESSAGE_XML_DOCUMENT;
 import static main.identification.utils.Constants.XML_ROOT_DOCUMENT;
 
 import main.identification.exceptions.SimpleErrorHandler;
-import main.identification.model.UniversityCard;
+import main.identification.model.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
-
 import javax.xml.XMLConstants;
 import javax.xml.parsers.*;
 import javax.xml.transform.stream.StreamSource;
@@ -24,10 +23,6 @@ import java.util.List;
 import java.util.Stack;
 
 public class ParserFunctions {
-
-  private final Stack<String> elements = new Stack<>();
-
-  private final Stack<UniversityCard> objects = new Stack<>();
 
   public boolean isXmlValidated(String xmlDocument, String xmlSchema) throws IOException {
     try {
@@ -61,9 +56,11 @@ public class ParserFunctions {
     }
   }
 
-  public List<UniversityCard> toObject() {
+  public List<UniversityCard> toObject(String elementName, String documentRoot) {
 
-    List<UniversityCard> universityCardList = new ArrayList<>();
+    List<UniversityCard> elementList = new ArrayList<>();
+    Stack<String> tagStack = new Stack<>();
+    Stack<UniversityCard> elementStack = new Stack<>();
 
     try {
       SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -73,76 +70,32 @@ public class ParserFunctions {
       parser.parse(is, new DefaultHandler() {
 
         @Override
-        public void startElement(String uri,
-                                 String localName,
-                                 String qName,
-                                 Attributes attributes) throws SAXException {
-          elements.push(qName);
-          if ("universityCard".equals(qName)) {
-            UniversityCard record = new UniversityCard();
-            objects.push(record);
-            universityCardList.add(record);
+        public void startElement(String uri, String localName, String tagName, Attributes attributes) {
+          tagStack.push(tagName);
+          if (elementName.equals(tagName)) {
+
+            UniversityCard universityCard = new UniversityCard();
+            initializeUniversityCard(universityCard);
+
+            elementStack.push(universityCard);
+            elementList.add(universityCard);
           }
         }
 
         @Override
-        public void endElement(String uri,
-                               String localName,
-                               String qName) throws SAXException {
-          elements.pop();
+        public void endElement(String uri, String localName, String qName) {
+          tagStack.pop();
         }
 
         @Override
-        public void characters(char[] ch,
-                               int start,
-                               int length) throws SAXException {
+        public void characters(char[] ch, int start, int length) {
 
           String value = new String(ch, start, length);
           if (value.length() == 0) {
             return;
           }
 
-          if ("university".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setUniversity(value);
-
-          } else if ("code".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setCode(value);
-
-          } else if ("dni".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setDni(value);
-
-          } else if ("lastName".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setLastName(value);
-
-          } else if ("firstName".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setFirstName(value);
-
-          } else if ("faculty".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setFaculty(value);
-
-          } else if ("career".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setCareer(value);
-
-          } else if ("year".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setYear(Integer.parseInt(value));
-
-          } else if ("incomeYear".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setIncomeYear(value);
-
-          } else if ("expirationDate".equals(currentElement())) {
-            UniversityCard record = objects.peek();
-            record.setExpirationDate(value);
-
-          }
+          buildUniversityCard(elementStack, tagStack, value);
         }
 
       });
@@ -151,11 +104,83 @@ public class ParserFunctions {
       e.printStackTrace();
     }
 
-    return universityCardList;
+    return elementList;
   }
 
-  private String currentElement() {
-    return elements.peek();
+  private void buildUniversityCard(Stack<UniversityCard> elementStack,
+                                   Stack<String> tagStack,
+                                   String value) {
+
+    if ("year".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      actualUniversityCard.setYear(Integer.parseInt(value));
+
+    } else if ("expirationDate".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      actualUniversityCard.setExpirationDate(value);
+
+    } else if ("firstName".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      actualStudent.setFirstName(value);
+
+    } else if ("lastName".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      actualStudent.setLastName(value);
+
+    } else if ("dni".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      actualStudent.setDni(value);
+
+    } else if ("code".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      actualStudent.setCode(value);
+
+    } else if ("incomeYear".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      actualStudent.setIncomeYear(value);
+
+    } else if ("careerName".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      Career actualCareer = actualStudent.getCareer();
+      actualCareer.setCareerName(value);
+
+    } else if ("facultyName".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      Career actualCareer = actualStudent.getCareer();
+      Faculty actualFaculty = actualCareer.getFaculty();
+      actualFaculty.setFacultyName(value);
+
+    } else if ("universityName".equals(tagStack.peek())) {
+      UniversityCard actualUniversityCard = elementStack.peek();
+      Student actualStudent = actualUniversityCard.getStudent();
+      Career actualCareer = actualStudent.getCareer();
+      Faculty actualFaculty = actualCareer.getFaculty();
+      University actualUniversity = actualFaculty.getUniversity();
+      actualUniversity.setUniversityName(value);
+
+    }
+  }
+
+  private void initializeUniversityCard(UniversityCard universityCard) {
+    University university = new University();
+
+    Faculty faculty = new Faculty();
+    faculty.setUniversity(university);
+
+    Career career = new Career();
+    career.setFaculty(faculty);
+
+    Student student = new Student();
+    student.setCareer(career);
+
+    universityCard.setStudent(student);
   }
 
 }

@@ -13,16 +13,40 @@
 
     <xs:complexType name="universityCard">
         <xs:sequence>
-            <xs:element name="university"		type="xs:string"/>
-            <xs:element name="code"			    type="xs:string"/>
-            <xs:element name="dni"				type="xs:string"/>
-            <xs:element name="lastName"		    type="xs:string"/>
-            <xs:element name="firstName"		type="xs:string"/>
-            <xs:element name="faculty"			type="xs:string"/>
-            <xs:element name="career"			type="xs:string"/>
-            <xs:element name="year"				type="xs:integer"/>
-            <xs:element name="incomeYear"		type="xs:string"/>
-            <xs:element name="expirationDate"	type="xs:string"/>
+            <xs:element name="year" type="xs:integer"/>
+            <xs:element name="expirationDate" type="xs:string"/>
+            <xs:element name="student">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="firstName" type="xs:string"/>
+                        <xs:element name="lastName" type="xs:string"/>
+                        <xs:element name="dni" type="xs:string"/>
+                        <xs:element name="code" type="xs:string"/>
+                        <xs:element name="incomeYear" type="xs:string"/>
+                        <xs:element name="career">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="careerName" type="xs:string"/>
+                                    <xs:element name="faculty">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="facultyName" type="xs:string"/>
+                                                <xs:element name="university">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element name="universityName" type="xs:string"/>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 

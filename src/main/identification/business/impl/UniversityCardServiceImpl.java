@@ -1,14 +1,12 @@
 package main.identification.business.impl;
 
+import static main.identification.utils.Constants.*;
+
 import main.identification.business.UniversityCardService;
 import main.identification.utils.ParserFunctions;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-
-import static main.identification.utils.Constants.XML_DOCUMENT;
-import static main.identification.utils.Constants.XML_SCHEMA;
 
 public class UniversityCardServiceImpl implements UniversityCardService {
 
@@ -27,9 +25,12 @@ public class UniversityCardServiceImpl implements UniversityCardService {
 
   @Override
   public long countStudentsByProfessionalSchool(String professionalSchool) {
-    return parserFunctions.toObject()
+    return parserFunctions.toObject("universityCard", XML_ROOT_DOCUMENT)
         .stream()
-        .filter(universityCard -> universityCard.getCareer().equals(professionalSchool))
+        .filter(universityCard -> universityCard
+            .getStudent()
+            .getCareer()
+            .getCareerName().equals(professionalSchool))
         .count();
   }
 }
