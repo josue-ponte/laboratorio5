@@ -1,7 +1,5 @@
 package main.identification.utils;
 
-import static main.identification.utils.Constants.MESSAGE_XML_DOCUMENT;
-
 import main.identification.exceptions.SimpleErrorHandler;
 import main.identification.model.*;
 import org.xml.sax.Attributes;
@@ -27,11 +25,11 @@ public class ParserFunctions {
     try {
       SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
       ((schemaFactory.newSchema(new File(xmlSchema))).newValidator()).validate(new StreamSource(new File(xmlDocument)));
-      System.out.println(MESSAGE_XML_DOCUMENT.concat(" válido"));
+
       return true;
 
     } catch (SAXException ex) {
-      System.out.println(MESSAGE_XML_DOCUMENT.concat(" no válido"));
+
       return false;
     }
   }
@@ -46,11 +44,9 @@ public class ParserFunctions {
       DocumentBuilder builder = factory.newDocumentBuilder(); // leer documento xml
       builder.setErrorHandler(new SimpleErrorHandler()); // controlar excepcion
       builder.parse(new InputSource(xmlDocument));  // el método "parse" lanzará una excepción si está mal formado
-      System.out.println(MESSAGE_XML_DOCUMENT.concat(" bien formado"));
       return true;
 
     } catch (SAXParseException ex) {
-      System.out.println(MESSAGE_XML_DOCUMENT.concat(" mal formado"));
       return false;
     }
   }

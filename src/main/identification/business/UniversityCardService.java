@@ -9,6 +9,6 @@ public interface UniversityCardService {
 
   void processXmlDocument() throws IOException, SAXException, ParserConfigurationException;
 
-  long countStudentsByProfessionalSchool(String professionalSchool);
+  long countStudentsByProfessionalSchool(String professionalSchool) throws IOException, SAXException, ParserConfigurationException;
 
 }
